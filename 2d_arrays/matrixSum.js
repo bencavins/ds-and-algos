@@ -5,7 +5,14 @@ Write a function that calculates and returns
 the sum of all elements in a given 2D array.
 */
 function sumOfElements(m) {
-
+    let total = 0
+    for (let i = 0; i < m.length; i++) {
+        // const row = m[i]
+        for (let j = 0; j < m[i].length; j++) {
+            total += m[i][j]
+        }
+    }
+    return total
 }
 
 
