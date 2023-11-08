@@ -1,5 +1,8 @@
-def reverse_cols(m):
+from matrix import print_mat
+
+def reverse_cols(mat):
     """Should reverse the order of columns for matrix m"""
+    pass
 
 
 if __name__ == '__main__':
