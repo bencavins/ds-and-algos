@@ -1,4 +1,4 @@
-def swap_cols(m):
+def reverse_cols(m):
     """Should reverse the order of columns for matrix m"""
 
 
@@ -13,4 +13,4 @@ if __name__ == '__main__':
         [6, 5, 4],
         [9, 8, 7]
     ]
-    assert swap_cols(input_m) == expected
+    assert reverse_cols(input_m) == expected
