@@ -68,3 +68,4 @@ class LinkedList:
             current_node = current_node.next
 
 ll = LinkedList()
+
