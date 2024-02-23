@@ -8,20 +8,7 @@ What is the runtime complexity?
 """
 
 def binary_search(l, target):
-    left_i = 0
-    right_i = len(l) - 1
-
-    while left_i <= right_i:
-        mid_i = (left_i + right_i) // 2
-
-        if l[mid_i] == target:
-            return mid_i
-        elif l[mid_i] < target:
-            left_i = mid_i + 1
-        else:
-            right_i = mid_i - 1
-    
-    return -1
+    pass
 
 
 if __name__ == '__main__':
