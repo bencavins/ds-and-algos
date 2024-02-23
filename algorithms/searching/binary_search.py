@@ -8,14 +8,27 @@ What is the runtime complexity?
 """
 
 def binary_search(l, target):
-    pass
+    left_i = 0
+    right_i = len(l) - 1
+
+    while left_i <= right_i:
+        mid_i = (left_i + right_i) // 2
+
+        if l[mid_i] == target:
+            return mid_i
+        elif l[mid_i] < target:
+            left_i = mid_i + 1
+        else:
+            right_i = mid_i - 1
+    
+    return -1
 
 
 if __name__ == '__main__':
     # test 1
-    l = [1, 5, 2, 0, 0, 3, 7, 4, 8]
+    l = [0, 0, 1, 2, 3, 4, 5, 7, 8]
     res = binary_search(l, 3)
-    assert res == 6
+    assert res == 4
 
     # test 2
     l = ['a', 'b', 'c', 'd', 'e', 'f']
