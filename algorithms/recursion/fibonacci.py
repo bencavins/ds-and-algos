@@ -12,6 +12,9 @@ def fib(n):
         print('cache hit')
         return cache[n]
     
+    if n < 0:
+        return None
+
     if n == 0:
         return 0
     if n == 1:
