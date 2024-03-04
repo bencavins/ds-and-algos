@@ -11,3 +11,6 @@ class Queue:
     def dequeue(self):
         """Remove from the front of the line"""
         return self.data.delete_front()  # O(1)
+
+    def is_empty(self):
+        return self.data.head is None

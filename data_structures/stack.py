@@ -11,3 +11,6 @@ class Stack:
     def pop(self):
         """Remove value from the top of the stack"""
         return self.data.pop()  # O(1)
+    
+    def is_empty(self):
+        return len(self.data) == 0
