@@ -12,3 +12,7 @@ class Queue:
     def dequeue(self):  # O(1)
         """Remove from front of queue"""
         return self.data.delete_front()
+
+    def is_empty(self):
+        """Returns True if the queue is empty"""
+        return self.data.is_empty()
