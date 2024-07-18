@@ -1,6 +1,13 @@
+
+# time: O(n*m)
+# space: O(1)
 def mat_sum(m):
     """Should return the sum of all values in m"""
-    pass
+    count = 0
+    for row in m:
+        for value in row:
+            count += value
+    return count
 
 
 if __name__ == '__main__':
