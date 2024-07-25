@@ -2,62 +2,69 @@ class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
-        self.prev = None
-
-    def __repr__(self) -> str:
-        return f'<Node {self.value}>'
     
+    def __repr__(self) -> str:
+        return f"<Node {self.value}>"
 
 class LinkedList:
     def __init__(self):
         self.head = None
-
-    def add_back(self, value):  # O(n)
-        '''Add a new node to the back of the list'''
-        new_node = Node(value)
-
-        if self.head is None:  # this node is the first one
+        self.tail = None
+    
+    # O(1)
+    def add_front(self, value):
+        if self.head is None:  # our list is empty
+            new_node = Node(value)
+            new_node.next = self.head
             self.head = new_node
-            return
-        
-        curr = self.head
-        while curr.next is not None:
-            curr = curr.next
-        curr.next = new_node
-
-    def add_front(self, value):  # O(1)
+            self.tail = new_node
+        else:
+            new_node = Node(value)
+            new_node.next = self.head
+            self.head = new_node
+    
+    # O(1)
+    def add_back(self, value):
         new_node = Node(value)
-        new_node.next = self.head
-        self.head = new_node
-
-    def delete_back(self):  # O(n)
-        curr = self.head
-
-        if curr.next is None:  # only one node
+        if self.head is None:  # list is empty
+            self.add_front(value)
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+    
+    # O(1)
+    def delete_front(self):
+        val = self.head.value
+        if self.head is not None:
+            self.head = self.head.next
+        elif self.head.next is None:
             self.head = None
-            return
+            self.tail = None
+        return val
+    
+    # O(n)
+    def delete_back(self):
+        curr_node = self.head
+        if self.head.next is None:
+            self.head = None
+        else:
+            while curr_node.next is not self.tail:
+                curr_node = curr_node.next
+            self.tail = curr_node
+            self.tail.next = None
+    
+    # O(n)
+    def index(self, i):
+        pass
 
-        while curr.next.next is not None:  # second to last node
-            curr = curr.next
-        curr.next = None
+    def is_empty(self):
+        return self.head is None
 
-    def delete_front(self):  # O(1)
-        self.head = self.head.next
-
-    def print(self):  # O(n)
-        curr = self.head
-        while curr is not None:
-            print(curr)
-            curr = curr.next
-
+    def print_list(self):
+        current_node = self.head
+        while current_node is not None:
+            print(current_node)
+            # move to next node in list
+            current_node = current_node.next
 
 ll = LinkedList()
-ll.add_front(0)
-ll.add_front(1)
-ll.add_front(2)
-ll.print()
-print('-'*20)
-ll.delete_front()
-ll.delete_front()
-ll.delete_front()
-ll.print()
