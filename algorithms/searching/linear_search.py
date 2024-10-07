@@ -7,8 +7,11 @@ Use a sequential search (aka linear search).
 What is the runtime complexity?
 """
 
-def linear_search(l, target):
-    pass
+def linear_search(array, number):
+    for num in array:
+        if num == number:
+            return True
+    return False
 
 
 if __name__ == '__main__':
